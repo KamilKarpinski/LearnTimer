@@ -11,12 +11,12 @@ public class LearningSession {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date startDate;
-    private Date endDate;
+    private  Date endDate;
     private double duration;
 
     public LearningSession( Date startDate, Date endDate) {
-        this.startDate = startDate;
         this.endDate = endDate;
+        this.startDate = startDate;
         this.duration = 0;
     }
 

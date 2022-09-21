@@ -22,7 +22,7 @@ public class LearningSessionApi {
     @PatchMapping("/api/startSession")
     public boolean stopSession(@RequestParam  Long currentSessionId) {
         Optional<LearningSession> learningSession = learningSessionRepo.findById(currentSessionId);
-        if(learningSession.isPresent()){
+        if(learningSession.isPresent() && learningSession.get().getEndDate().equals(learningSession.get().getStartDate())){
             learningSession.get().setEndDate(new Date());
             learningSessionRepo.save(learningSession.get());
             return true;
